@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   userId: null,
 };
 
+// eslint-disable-next-line
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SIGN_IN:
