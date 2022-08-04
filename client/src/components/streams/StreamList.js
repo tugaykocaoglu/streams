@@ -16,6 +16,20 @@ const StreamList = (props) => {
   );
 };
 
+const renderAdmin = (stream, props) => {
+  if(stream.userId === props.currentUserId)
+    return (
+      <div className="right floated content">
+        <button className="ui button primary">
+          Edit
+        </button>
+        <button className="ui button negative">
+          Delete
+        </button>
+      </div>
+    )
+}
+
 const renderList =  (props) => {
   return props.streams.map(stream=> {
     return (
@@ -25,13 +39,17 @@ const renderList =  (props) => {
           {stream.title}
           <div className="description">{stream.description}</div>
         </div>
+        {renderAdmin(stream, props)}
       </div>
     );
   });
 }
 
 const mapStateToProps = (state) => {
-  return {streams: Object.values(state.streams)}
+  return {
+    streams: Object.values(state.streams),
+    currentUserId: state.auth.userId
+  };
 }
 
 
