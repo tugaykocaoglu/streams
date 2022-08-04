@@ -48,10 +48,14 @@ const renderList =  (props) => {
   return props.streams.map(stream=> {
     return (
       <div className='item' key={stream.id}>
-        <i className="large middle aligned icon camera" />
-        <div className="content">
-          {stream.title}
-          <div className="description">{stream.description}</div>
+        <div className='left floated content'>
+          <i className="large middle aligned icon camera" />
+        </div>
+        <div className='left floated content'>
+          <div className="content">
+            {stream.title}
+            <div className="description">{stream.description}</div>
+          </div>
         </div>
         {renderAdmin(stream, props)}
       </div>
